@@ -37,15 +37,15 @@
         {
             return [
                 'get' => [
-                    '/user' => self::load('UserController', 'get'), 
-                    '/product' => self::load('ProductController', 'get'), 
-                    '/cart' => self::load('CartController', 'get') 
+                    '/user' => fn() => self::load('UserController', 'get'), 
+                    '/product' => fn() => self::load('ProductController', 'get'), 
+                    '/cart' => fn() => self::load('CartController', 'get') 
                 ],
                 
                 'post' => [
-                    '/user' => self::load('UserController', 'post'), 
-                    '/product' => self::load('ProductController', 'post'), 
-                    '/cart' => self::load('CartController', 'post')  
+                    '/user' => fn() => self::load('UserController', 'post'), 
+                    '/product' => fn() => self::load('ProductController', 'post'), 
+                    '/cart' => fn() => self::load('CartController', 'post')  
                 ],
                 
                 'put' => [
@@ -75,7 +75,7 @@
 
                 $router = $routes[$request][$uri];
 
-                var_dump($router);
+                $router();
 
             }catch(\Exception $e){
                 echo $e->getMessage();

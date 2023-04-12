@@ -4,7 +4,7 @@
 
     class ProductController
     {
-        public function get(){
+        public function get($id = null){
             echo "Get product controller<br>";
         }
 

@@ -5,11 +5,11 @@
     class CartController
     {
         public function get(){
-            echo "Get product controller<br>";
+            echo "Get cart controller<br>";
         }
 
         public static function post(){
-            echo "Post product controller<br>";
+            echo "Post cart controller<br>";
         }
 
         public static function put(){

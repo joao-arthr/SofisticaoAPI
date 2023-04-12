@@ -1,25 +1,21 @@
 <?php
     namespace app\models;
-    require_once "../../vendor/autoload.php";
-    require_once 'Conexao.php';
+    require_once __DIR__."/../../vendor/autoload.php";
+    
+    use app\models\Conexao;
 
     class User extends Conexao
     {
-        private $col;
+        private $con;
         private $nameCollection = 'User';
 
         public function __construct(){          
-            $con = parent::__construct();
-
-            $nameCollection = $this->nameCollection;
-            $con->createCollection($nameCollection);
-            
-            $this->col = $con->$nameCollection;
+            $this->con = Conexao::selectCollection($this->nameCollection);
         }
 
-        public function get(int $id){
-            $col = $this->col;
-            $document = $col->findOne(['_id' => $id]);
+        public function findOne(int $id){
+            $con = $this->con;
+            $document = $con->findOne(['_id' => $id]);
 
             if($document){
                 return $document;
@@ -27,6 +23,17 @@
                 throw new \Exception("Nenhum registro encontrado na coleção". $this->nameCollection);
             }
         }
+
+        /*public function find(){
+            $con = $this->con;
+            $document = $con->find();
+
+            if($document){
+                return $document;
+            } else{
+                throw new \Exception("Nenhum registro encontrado na coleção". $this->nameCollection);
+            }
+        }*/
 
         public static function post(){
 

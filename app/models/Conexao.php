@@ -2,7 +2,7 @@
     namespace app\models;
     use MongoDB;
     
-    require_once "../../vendor/autoload.php";
+    require_once __DIR__."/../../vendor/autoload.php";
     
     class Conexao
     {
@@ -10,16 +10,19 @@
 
         public function __construct()
         {
-            $con = $this->connectDb();
-            return $con;
+            
         }
 
-        private function connectDb(){
+        protected function connectDb(){
             $db = $this->nomedb;
-            
             $client = new MongoDB\Client;
             $con = $client->$db;
             return $con;
+        }
+
+        protected function selectCollection(string $nameCollection){
+            $con = $this->connectDb();
+            $con->$nameCollection;
         }
     }
     
