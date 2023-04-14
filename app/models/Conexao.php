@@ -6,23 +6,18 @@
     
     class Conexao
     {
-        private $nomedb = "Sofisticao";
+        private static $nomedb = "Sofisticao";
 
-        public function __construct()
-        {
-            
-        }
-
-        protected function connectDb(){
-            $db = $this->nomedb;
+        protected static function connectDb(){
+            $db = self::$nomedb;
             $client = new MongoDB\Client;
             $con = $client->$db;
             return $con;
         }
 
-        protected function selectCollection(string $nameCollection){
-            $con = $this->connectDb();
-            $con->$nameCollection;
+        protected static function selectCollection(string $nameCollection){
+            $con = self::connectDb();
+            return $con->$nameCollection;
         }
     }
     

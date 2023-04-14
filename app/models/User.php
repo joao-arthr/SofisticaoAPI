@@ -6,11 +6,11 @@
 
     class User extends Conexao
     {
-        private $con;
+        private static $con;
         private $nameCollection = 'User';
 
         public function __construct(){          
-            $this->con = Conexao::selectCollection($this->nameCollection);
+            self::$con = Conexao::selectCollection(self::$nameCollection);
         }
 
         public function findOne(int $id){
@@ -20,23 +20,31 @@
             if($document){
                 return $document;
             } else{
-                throw new \Exception("Nenhum registro encontrado na coleção". $this->nameCollection);
+                throw new \Exception("Nenhum registro encontrado na coleção". self::$nameCollection);
             }
         }
 
-        /*public function find(){
+        public function find(){
             $con = $this->con;
-            $document = $con->find();
+            $documentList = $con->find();
 
-            if($document){
-                return $document;
+            if($documentList){
+                return $documentList;
             } else{
-                throw new \Exception("Nenhum registro encontrado na coleção". $this->nameCollection);
+                throw new \Exception("Nenhum registro encontrado na coleção". self::$nameCollection);
             }
-        }*/
+        }
 
-        public static function post(){
-
+        public static function insert($post){
+            $con = self::$con;
+            $resultInsert = $con->insertOne([ "name" => $post['name'], "email" => $post['email'], "senha" => password_hash($post['password'], PASSWORD_DEFAULT)]);
+            $countInsert = $resultInsert->getInsertedCount();
+            
+            if($countInsert= 1){
+                echo "Usuário cadastrado com sucesso!";
+            } else{
+                throw new \Exception("Falha ao cadastrar usuário");
+            }
         }
 
         public static function put(){
