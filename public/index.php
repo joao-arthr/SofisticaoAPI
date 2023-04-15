@@ -3,7 +3,8 @@
     use app\routes\Router;
     use app\models\User;
     use app\models\Conexao;
-    //header('Content-type: application/json');
+    use app\helpers\Uri;
+    header('Content-type: application/json');
     Router::execute();
 
     ?>

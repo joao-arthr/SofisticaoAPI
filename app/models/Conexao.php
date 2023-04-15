@@ -15,7 +15,7 @@
             return $con;
         }
 
-        protected static function selectCollection(string $nameCollection){
+        public static function selectCollection(string $nameCollection){
             $con = self::connectDb();
             return $con->$nameCollection;
         }

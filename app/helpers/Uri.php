@@ -8,6 +8,11 @@
         {
             return parse_url($_SERVER['REQUEST_URI'])[$type];
         }
+
+        public static function getId()
+        {
+            return explode("/", $_SERVER['REQUEST_URI']);
+        }
     }
 
 

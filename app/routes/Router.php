@@ -26,7 +26,12 @@
                     throw new \Exception("O controller {$method} não existe no controller {$controller} <br>");
                 }
                 
-                $controllerInstance->$method();
+                if($method != 'post'){
+                    $controllerInstance->$method(@Uri::getId()[2]);
+                } else{
+                    $controllerInstance->$method();
+                }
+                
 
             }catch(\Exception $e){
                 echo $e->getMessage();
@@ -37,23 +42,25 @@
         {
             return [
                 'get' => [
-                    '/user' => fn() => self::load('UserController', 'get'), 
-                    '/product' => fn() => self::load('ProductController', 'get'), 
-                    '/cart' => fn() => self::load('CartController', 'get') 
+                    '/user' => fn() => self::load('UserController', 'get'),
+                    '/user/'. @Uri::getId()[2] => fn() => self::load('UserController', 'get'),
+                    '/product' => fn() => self::load('ProductController', 'get'),
+                    '/product/'. @Uri::getId()[2] => fn() => self::load('UserController', 'get')
                 ],
                 
                 'post' => [
                     '/user' => fn() => self::load('UserController', 'post'), 
-                    '/product' => fn() => self::load('ProductController', 'post'), 
-                    '/cart' => fn() => self::load('CartController', 'post')  
+                    '/product' => fn() => self::load('ProductController', 'post')
                 ],
                 
                 'put' => [
-
+                    '/user/'. @Uri::getId()[2] => fn() => self::load('UserController', 'put'),
+                    '/product/'. @Uri::getId()[2] => fn() => self::load('UserController', 'put')
                 ],
                 
                 'delete' => [
-
+                    '/user/'. @Uri::getId()[2] => fn() => self::load('UserController', 'delete'),
+                    '/product/'. @Uri::getId()[2] => fn() => self::load('UserController', 'delete')
                 ]
             ];
         }

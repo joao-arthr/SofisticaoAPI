@@ -7,15 +7,19 @@
     class UserController
     {
         public function __construct(){
-            return $u = new User();
+            $u = new User();
         }
 
         public function get($id = null){
             try{
                 if($id){
                     $document = User::findOne($id);
+                    var_dump($document);
                 } else{
                     $documentList = User::find();
+                    foreach($documentList as $doc){
+                        var_dump($doc);
+                    }
                 }
             } catch(\Exception $e){
                 echo $e->getMessage();
@@ -24,18 +28,15 @@
         }
 
         public function post(){
-            $u = self::__construct();
-            $u->insert($_POST);
+            User::insert($_POST);
         }
 
         public static function put(){
-
+            User::update($_PUT);
         }
 
         public static function delete(){
 
         }
     }
-
-
 ?>
