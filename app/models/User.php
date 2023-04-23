@@ -2,13 +2,12 @@
     namespace app\models;
     require_once __DIR__."/../../vendor/autoload.php";
     use MongoDB;
-
     use app\models\Conexao;
 
-    class User extends Conexao
+    class Product extends Conexao
     {
         private static $con;
-        private static $nameCollection = 'User';
+        private static $nameCollection = 'Product';
 
 
         public function __construct(){          
@@ -41,6 +40,7 @@
 
         public static function insert($post){
             $con = self::$con;
+
             $resultInsert = $con->insertOne([ "name" => $post['name'], "email" => $post['email'], "senha" => password_hash($post['password'], PASSWORD_DEFAULT)]);
             $countInsert = $resultInsert->getInsertedCount();
             
@@ -51,13 +51,29 @@
             }
         }
 
-        public static function put($put){
+        public static function update($id, $put){
             $con = self::$con;
-            $resultUpdate = $con->updateOne(["_id" => new MongoDB\BSON\ObjectId("$put['id']")],["name" => $put['name'], "email" => $put['email'], "senha" => password_hash($put['password'], PASSWORD_DEFAULT)]);
+
+            $resultUpdate = $con->updateOne(["_id" => new MongoDB\BSON\ObjectId("$id") ],['$set' => ["nome" => $put['name'], "email" => $put['email'], "senha" => password_hash($put['password'], PASSWORD_DEFAULT)]]);
+            $countUpdate = $resultUpdate->getModifiedCount();
+
+            if($countUpdate = 1){
+                echo "Usuário alterado com sucesso!";
+            } else{
+                throw new \Exception("Falha ao atualizar usuário");
+            }
         }
 
-        public static function delete(){
+        public static function delete($id){
+            $con = self::$con;
+            $resultDelete = $con->deleteOne(["_id" => new MongoDB\BSON\ObjectId("$id") ]);
+            $countDelete = $resultDelete->getDeletedCount();
 
+            if($countInsert= 1){
+                echo "Usuário". $id ." deletado com sucesso!";
+            } else{
+                throw new \Exception("Falha ao deletar usuário");
+            }
         }
     }
 ?>

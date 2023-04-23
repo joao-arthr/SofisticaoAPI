@@ -45,7 +45,7 @@
                     '/user' => fn() => self::load('UserController', 'get'),
                     '/user/'. @Uri::getId()[2] => fn() => self::load('UserController', 'get'),
                     '/product' => fn() => self::load('ProductController', 'get'),
-                    '/product/'. @Uri::getId()[2] => fn() => self::load('UserController', 'get')
+                    '/product/'. @Uri::getId()[2] => fn() => self::load('ProductController', 'get')
                 ],
                 
                 'post' => [
@@ -55,12 +55,12 @@
                 
                 'put' => [
                     '/user/'. @Uri::getId()[2] => fn() => self::load('UserController', 'put'),
-                    '/product/'. @Uri::getId()[2] => fn() => self::load('UserController', 'put')
+                    '/product/'. @Uri::getId()[2] => fn() => self::load('ProductController', 'put')
                 ],
                 
                 'delete' => [
                     '/user/'. @Uri::getId()[2] => fn() => self::load('UserController', 'delete'),
-                    '/product/'. @Uri::getId()[2] => fn() => self::load('UserController', 'delete')
+                    '/product/'. @Uri::getId()[2] => fn() => self::load('ProductController', 'delete')
                 ]
             ];
         }
@@ -85,7 +85,7 @@
                 $router();
 
             }catch(\Exception $e){
-                echo $e->getMessage();
+                echo json_encode($e->getMessage());
             }
         }
     }
