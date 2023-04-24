@@ -50,7 +50,7 @@ $ php -S localhost:8000 -t SofisticaoAPI/public
 
 ### 🎲 Importando o Banco de Dados (MongoDB)
     Crie o banco de dados com nome 'Sofisticao' com as coleções User e Product
-    Após clonar o Projeto acesse a pasta SofisticaoAPI/app/models e importe os arquivos 'User.json' e 'Product.json' nas coleções User e Product respectivamente
+    Após clonar o Projeto acesse a pasta SofisticaoAPI/app/models/assets e importe os arquivos 'User.json' e 'Product.json' nas coleções User e Product respectivamente
 
 ### 📱 Rodando o Front End (Web)
 
