@@ -1,10 +1,11 @@
 <?php
     include "../vendor/autoload.php";
     use app\routes\Router;
-    use app\models\User;
-    use app\models\Conexao;
-    use app\helpers\Uri;
+    
     header('Content-type: application/json');
+    header("Access-Control-Allow-Origin: *");
+    header("Access-Control-Allow-Headers: *");
+    
     Router::execute();
 
     ?>
