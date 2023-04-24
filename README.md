@@ -2,7 +2,7 @@
 
 
 ## Descrição do Projeto
-<p align="center">Projeto de e-commerce para petshop desenvolvido para o curso</p>
+<p align="center">Projeto de e-commerce para petshop desenvolvido para o terceiro semestre do curso Desenvolvimento de Software Multiplataforma na FATEC de Registro</p>
 
 ## Tabela de conteúdos
 <!--ts-->
