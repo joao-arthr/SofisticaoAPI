@@ -31,7 +31,7 @@
         }
         
         public function post(){
-            Product::insert($_POST);
+            Product::insert(json_decode(file_get_contents('php://input'), true));
         }
 
         public static function put($id){
