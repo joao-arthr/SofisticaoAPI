@@ -34,6 +34,10 @@
             User::insert($_POST);
         }
 
+        public function verifyLogin(){
+            
+        }
+
         public static function put($id){
             User::update( $id, json_decode(file_get_contents('php://input'), true));
         }

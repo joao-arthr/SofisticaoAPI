@@ -4,10 +4,10 @@
     use MongoDB;
     use app\models\Conexao;
 
-    class Product extends Conexao
+    class User extends Conexao
     {
         private static $con;
-        private static $nameCollection = 'Product';
+        private static $nameCollection = 'User';
 
 
         public function __construct(){          
@@ -41,7 +41,7 @@
         public static function insert($post){
             $con = self::$con;
 
-            $resultInsert = $con->insertOne([ "name" => $post['name'], "email" => $post['email'], "senha" => password_hash($post['password'], PASSWORD_DEFAULT)]);
+            $resultInsert = $con->insertOne([ "name" => $post['name'], "email" => $post['email'], "senha" => $post['password']]);
             $countInsert = $resultInsert->getInsertedCount();
             
             if($countInsert= 1){
