@@ -61,8 +61,8 @@ $ git clone https://github.com/davitorress/Sofisticao-Web.git
 ```
 Abra o repositório do 'Sofisticao-Web' no VS Code e inicie a extensão Live Server. Ela iniciará um servidor para o Site. Sem o servidor o Front não consegue consumir a API.
 
-Para acessar o CMS utilize o link e adicione /cms
-O login do CMS é email 'admin' e senha 'admin'
+Para acessar o CMS utilize o link e adicione /cms.
+O login do CMS é email 'admin@admin.com' e senha 'admin', tal qual está salvo na base de dados.
 
 
 
