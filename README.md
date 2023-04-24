@@ -59,7 +59,7 @@ $ php -S localhost:8000 -t SofisticaoAPI/public
 $ git clone https://github.com/davitorress/Sofisticao-Web.git
 
 ```
-Abra o projeto no VS Code e inicie a extensão Live Server. Ela iniciará um servidor para o Site. Sem o servidor o Front não consegue consumir a API.
+Abra o repositório do 'Sofisticao-Web' no VS Code e inicie a extensão Live Server. Ela iniciará um servidor para o Site. Sem o servidor o Front não consegue consumir a API.
 
 Para acessar o CMS utilize o link e adicione /cms
 O login do CMS é email 'admin' e senha 'admin'
