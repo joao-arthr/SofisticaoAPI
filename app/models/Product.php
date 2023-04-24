@@ -55,7 +55,13 @@
         public static function update($id, $put){
             $con = self::$con;
 
-            $resultUpdate = $con->updateOne(["_id" => new MongoDB\BSON\ObjectId("$id") ],['$set' => [ "nome" => $put['nome'], "preco" => $put['preco'], "preco_desc" => $put['preco_desc'], "porte" => $put['porte'], "quantidade" => $put['quantidade'], "categoria" => $put['categoria'], "cores" => $put['cores'], "imagem" => $put['imagem']]]);
+            if($put['imagem']){
+                $resultUpdate = $con->updateOne(["_id" => new MongoDB\BSON\ObjectId("$id") ],['$set' => [ "nome" => $put['nome'], "preco" => $put['preco'], "preco_desc" => $put['preco_desc'], "porte" => $put['porte'], "quantidade" => $put['quantidade'], "categoria" => $put['categoria'], "cores" => $put['cores'], "imagem" => $put['imagem']]]);
+            } else{
+                $resultUpdate = $con->updateOne(["_id" => new MongoDB\BSON\ObjectId("$id") ],['$set' => [ "nome" => $put['nome'], "preco" => $put['preco'], "preco_desc" => $put['preco_desc'], "porte" => $put['porte'], "quantidade" => $put['quantidade'], "categoria" => $put['categoria'], "cores" => $put['cores']]]);
+            }
+
+           
             $countUpdate = $resultUpdate->getModifiedCount();
 
             if($countUpdate = 1){

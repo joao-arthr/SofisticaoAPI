@@ -2,18 +2,19 @@
 
 
 ## Descrição do Projeto
-<p align="center">Projeto de e-commerce para petshop</p>
+<p align="center">Projeto de e-commerce para petshop desenvolvido para o curso</p>
 
 ## Tabela de conteúdos
 <!--ts-->
-   * [Sobre](#Sobre)
-   * [Tabela de Conteudo](#tabela-de-conteudo)
-   * [Instalação](#instalacao)
-   * [Como usar](#como-usar)
-      * [Pre Requisitos](#pre-requisitos)
-      * [Local files](#local-files)
-      * [Multiple files](#multiple-files)
-   * [Tecnologias](#tecnologias)
+- [Descrição do Projeto](#descrição-do-projeto)
+- [Tabela de conteúdos](#tabela-de-conteúdos)
+- [Como usar](#como-usar)
+  - [Pré-requisitos](#pré-requisitos)
+  - [Configurando ambiente MongoDB com PHP](#configurando-ambiente-mongodb-com-php)
+  - [🎲 Rodando o Back End (API)](#-rodando-o-back-end-api)
+  - [🎲 Importando o Banco de Dados (MongoDB)](#-importando-o-banco-de-dados-mongodb)
+  - [📱 Rodando o Front End (Web)](#-rodando-o-front-end-web)
+  - [🛠 Tecnologias](#-tecnologias)
 <!--te-->
 ## Como usar
 Passo a passo de como configurar o ambiente e rodar a aplicação
@@ -48,8 +49,8 @@ $ php -S localhost:8000 -t SofisticaoAPI/public
 
 
 ### 🎲 Importando o Banco de Dados (MongoDB)
-    Crie o banco de dados com nome 'Sofisticao' 
-    Após clonar o Projeto acesse a pasta SofisticaoAPI/app/modal e importe os arquivos 'User.json' e 'Product.json' nas coleções User e Product
+    Crie o banco de dados com nome 'Sofisticao' com as coleções User e Product
+    Após clonar o Projeto acesse a pasta SofisticaoAPI/app/models e importe os arquivos 'User.json' e 'Product.json' nas coleções User e Product respectivamente
 
 ### 📱 Rodando o Front End (Web)
 
@@ -59,6 +60,9 @@ $ git clone https://github.com/davitorress/Sofisticao-Web.git
 
 ```
 Abra o projeto no VS Code e inicie a extensão Live Server. Ela iniciará um servidor para o Site. Sem o servidor o Front não consegue consumir a API.
+
+Para acessar o CMS utilize o link e adicione /cms
+O login do CMS é email 'admin' e senha 'admin'
 
 
 
