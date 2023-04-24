@@ -40,12 +40,14 @@ Além disto terá que ter o editor [VSCode](https://code.visualstudio.com/) com 
 ```bash
 # Clone este repositório
 $ git clone https://github.com/joao-arthr/SofisticaoAPI.git
-
-#Inicie o server php na pasta public da API utilizando o endereço localhost:8000
-$ php -S localhost:8000 -t SofisticaoAPI/public
+```
+```bash
+#Acesse o XAMPP e vá na opção Shell, lá inicie o server php na pasta public da API utilizando o endereço localhost:8000, igual o comando abaixo,
+#Lembre-se que o Shell abrira no diretório c:\\xampp 
+$ php -S localhost:8000 -t htdocs/SofisticaoAPI/public
 
 # O servidor local onde está rodando a API é <http://localhost:8000>
-```
+'''
 
 
 ### 🎲 Importando o Banco de Dados (MongoDB)
