@@ -31,11 +31,7 @@
         }
         
         public function post(){
-            User::insert($_POST);
-        }
-
-        public function verifyLogin(){
-            
+            User::insert(json_decode(file_get_contents('php://input'), true));
         }
 
         public static function put($id){

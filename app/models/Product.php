@@ -55,7 +55,7 @@
         public static function update($id, $put){
             $con = self::$con;
 
-            $resultUpdate = $con->updateOne(["_id" => new MongoDB\BSON\ObjectId("$id") ],['$set' => [ "nome" => $post['nome'], "preco" => $post['preco'], "preco_desc" => $post['preco_desc'], "porte" => $post['porte'], "quantidade" => $post['quantidade'], "categoria" => $post['categoria'], "cores" => $post['cores'], "imagem" => $post['imagem']]]);
+            $resultUpdate = $con->updateOne(["_id" => new MongoDB\BSON\ObjectId("$id") ],['$set' => [ "nome" => $put['nome'], "preco" => $put['preco'], "preco_desc" => $put['preco_desc'], "porte" => $put['porte'], "quantidade" => $put['quantidade'], "categoria" => $put['categoria'], "cores" => $put['cores'], "imagem" => $put['imagem']]]);
             $countUpdate = $resultUpdate->getModifiedCount();
 
             if($countUpdate = 1){
